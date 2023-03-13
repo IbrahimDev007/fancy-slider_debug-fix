@@ -50,10 +50,18 @@ const selectItem = (event, img) => {
 let timer
 const createSlider = () => {
   // check slider image length
+
+  let duration = document.getElementById('duration').value;
+
   if (sliders.length < 2) {
     alert('Select at least 2 image.')
     return;
   }
+  else if(duration<0 ){
+   alert('do not input invalid or nagative number')
+  }
+  else{
+    duration=duration ||1000
   // crate slider previous next area
   sliderContainer.innerHTML = '';
   const prevNext = document.createElement('div');
@@ -67,7 +75,7 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration').value || 1000;
+ 
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
@@ -81,6 +89,10 @@ const createSlider = () => {
     slideIndex++;
     changeSlide(slideIndex);
   }, duration);
+
+}
+
+
 }
 
 // change slider index 
