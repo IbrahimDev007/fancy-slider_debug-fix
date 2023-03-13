@@ -47,7 +47,7 @@ const selectItem = (event, img) => {
     alert('Hey, Already added !')
   }
 }
-var timer
+let timer
 const createSlider = () => {
   // check slider image length
   if (sliders.length < 2) {
