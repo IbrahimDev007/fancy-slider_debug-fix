@@ -135,6 +135,15 @@ searchBtn.addEventListener('click', function () {
     return;
   }
 })
+document.getElementById('search').addEventListener('keypress',(e)=>{
+ 
+  if(e.key==='Enter'){
+    document.querySelector('.main').style.display = 'none';
+    clearInterval(timer);
+  getImages(e.target.value)
+  sliders.length = 0;
+  search.value=``;}
+})
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
